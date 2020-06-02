@@ -158,6 +158,29 @@ If you specify an `Object`, the test function will be called multiple times with
 
 Given parameters are available on `setUp()` and `tearDown()` also.
 
+## For debugging
+
+If you set `runnable` property to test functions with any `true` compatible value, only such flagged tests are executed and other tests are skipped.
+This will help you to run only some failed tests again and again on debugging.
+For example:
+
+```javascript
+// This test is skipped.
+export function testSuccess() {
+  const expected = 'AAA';
+  const actual = 'aaa'.toUpperCase();
+  is(expected, actual);
+}
+
+// This test is executed.
+testFail.runnable = true;
+export function testFail() {
+  const expected = 'AAA';
+  const actual = 'aaa'.toLowerCase();
+  is(expected, actual);
+}
+```
+
 # Example usecases
 
 * [self test](./tests/)
