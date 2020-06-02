@@ -12,6 +12,9 @@
     "format": "eslint . --ext=.js --report-unused-disable-directives --fix",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "bin": {
+    "run-tiny-esm-test-runner": "bin/run-tiny-esm-test-runner.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/piroor/tiny-esm-test-runner.git"
