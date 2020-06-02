@@ -1,0 +1,4 @@
+# from external
+
+# include as a lint target.
+!.eslintrc.jsc
