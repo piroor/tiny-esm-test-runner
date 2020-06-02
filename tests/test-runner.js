@@ -65,3 +65,36 @@ export async function testRunOnlyRunnable() {
   is({ success: 1, failure: 0, error: 0 },
      result);
 }
+
+export async function testDataDrivenTests() {
+  const log = [];
+  const testcases = [
+    {
+      setUp() { log.push('setup'); },
+      tearDown() { log.push('teardown'); },
+      testWithArrayData(data) { log.push(`test array ${JSON.stringify(data)}`); },
+      testWithObjectData(data) { log.push(`test object ${JSON.stringify(data)}`); }
+    }
+  ];
+  testcases[0].testWithArrayData.parameters = [
+    0,
+    ['string'],
+    { foo: true }
+  ];
+  testcases[0].testWithObjectData.parameters = {
+    primitive: 0,
+    array:     ['string'],
+    object:    { foo: true }
+  };
+  const result = await run(testcases, { reporter });
+  is([
+    'setup', 'test array 0', 'teardown',
+    'setup', 'test array ["string"]', 'teardown',
+    'setup', 'test array {"foo":true}', 'teardown',
+    'setup', 'test object 0', 'teardown',
+    'setup', 'test object ["string"]', 'teardown',
+    'setup', 'test object {"foo":true}', 'teardown'
+  ], log);
+  is({ success: 6, failure: 0, error: 0 },
+     result);
+}
