@@ -76,7 +76,7 @@ This succeeds when the actual value equals to the given expected value, based on
 Even if they are not exact same, they are re-compared again as JSON strings if they are JSON-stringifiable objects (`Object`, `Array`, and so on).
 
 
-### `isNot()`
+### `isNot(expected, actual, message)`
 
 This assertion accepts two or three arguments:
 
@@ -87,7 +87,7 @@ This assertion accepts two or three arguments:
 This is opposite of `is()`, succeeds when the actual value does not equal to the given expected value, based on the `!==` operator.
 They are also re-compared again as JSON strings if they are JSON-stringifiable objects (`Object`, `Array`, and so on).
 
-### `ok()`
+### `ok(actual, message)`
 
 This assertion accepts one or two arguments:
 
@@ -96,7 +96,7 @@ This assertion accepts one or two arguments:
 
 This succeeds when the actual value is detected as `true` on JavaScript.
 
-### `ng()`
+### `ng(actual, message)`
 
 This assertion accepts one or two arguments:
 
