@@ -3,7 +3,7 @@
 */
 
 import { run, assert } from '../index.js';
-const { is, isNot, ok, ng, AssertionError } = assert;
+const { is, AssertionError } = assert;
 
 const reporter = {
   log() {},
