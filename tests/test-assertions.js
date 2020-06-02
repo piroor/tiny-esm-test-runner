@@ -20,7 +20,7 @@ function assertFail(task) {
     task();
     ng(true);
   }
-  catch(error) {
+  catch(_error) {
     ok(true);
   }
 }
