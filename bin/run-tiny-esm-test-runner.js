@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 /*
  license: The MIT License, Copyright (c) 2020 YUKI "Piro" Hiroshi
 */
