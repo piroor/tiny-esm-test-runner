@@ -3,10 +3,11 @@
 [![Build Status](https://travis-ci.org/piroor/tiny-esm-test-runner.svg?branch=master)](https://travis-ci.org/piroor/tiny-esm-test-runner)
 
 Small test runner for ESModules style modules on Node.js.
+**This is for you ESModules addict, if you hope to write tests for ESModules as ESModules strictly.**
 
 ## How to create test cases
 
-First, please create test files as ESModules. For example:
+First, please create test files as module files. For example:
 
 ```javascript
 // Save as "test-example.js"
