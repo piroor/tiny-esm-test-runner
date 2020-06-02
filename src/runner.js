@@ -3,7 +3,7 @@
 */
 'use strict';
 
-async function run(testCases) {
+export async function run(testCases) {
   let runOnlyRunnable = false;
   let failureCount = 0;
   let errorCount = 0;
@@ -141,5 +141,3 @@ function logFailure(name, error) {
   }
 */
 }
-
-run();
