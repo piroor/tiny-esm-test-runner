@@ -3,7 +3,7 @@
 */
 
 import { run, assert } from '../index.js';
-const { is, isNot, ok, ng } = assert;
+const { is, isNot, ok, ng, AssertionError } = assert;
 
 const reporter = {
   log() {},
@@ -13,11 +13,23 @@ const reporter = {
 export async function testRunSynchronousTests() {
   const result = await run([
     {
-      test1() {},
-      test2() {},
-      test3() {}
+      testSuccess() {},
+      testFailure() { throw new AssertionError(); },
+      testError() { throw new Error(); }
     }
   ], { reporter });
-  is({ success: 3, failure: 0, error: 0 },
+  is({ success: 1, failure: 1, error: 1 },
+     result);
+}
+
+export async function testRunAsynchronousTests() {
+  const result = await run([
+    {
+      async testSuccess() {},
+      async testFailure() { throw new AssertionError(); },
+      async testError() { throw new Error(); }
+    }
+  ], { reporter });
+  is({ success: 1, failure: 1, error: 1 },
      result);
 }
