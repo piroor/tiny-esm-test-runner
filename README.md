@@ -1,5 +1,7 @@
 # tiny-esm-test-runner
 
+[![Build Status](https://travis-ci.org/piroor/tiny-esm-test-runner.svg?branch=master)](https://travis-ci.org/piroor/tiny-esm-test-runner)
+
 Small test runner for ESModules style modules on Node.js.
 
 ## How to create test cases
