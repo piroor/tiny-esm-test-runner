@@ -74,9 +74,9 @@ If you develop a npm module, you'll put the test script like:
     ...
     "test": "run-tiny-esm-test-runner test/test-*.js"
   },
-  "dependencies": {
+  "devDependencies": {
     ...
-    "tiny-esm-test-runner": "^1.0.0"
+    "tiny-esm-test-runner": "^1.1.0"
   }
 }
 ```
