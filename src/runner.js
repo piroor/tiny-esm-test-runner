@@ -3,10 +3,7 @@
 */
 'use strict';
 
-//import { Diff } from '../src/diff.js';
-
-async function run() {
-  const testCases = [];
+async function run(testCases) {
   let runOnlyRunnable = false;
   let failureCount = 0;
   let errorCount = 0;
