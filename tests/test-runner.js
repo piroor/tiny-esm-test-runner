@@ -11,25 +11,39 @@ const reporter = {
 };
 
 export async function testRunSynchronousTests() {
+  const log = [];
   const result = await run([
     {
-      testSuccess() {},
-      testFailure() { throw new AssertionError(); },
-      testError() { throw new Error(); }
+      setUp() { log.push('setup'); },
+      tearDown() { log.push('teardown'); },
+      testSuccess() { log.push('success'); },
+      testFailure() { log.push('failure'); throw new AssertionError(); },
+      testError() { log.push('error'); throw new Error(); }
     }
   ], { reporter });
+  is(['setup', 'success', 'teardown',
+      'setup', 'failure', 'teardown',
+      'setup', 'error', 'teardown'],
+     log);
   is({ success: 1, failure: 1, error: 1 },
      result);
 }
 
 export async function testRunAsynchronousTests() {
+  const log = [];
   const result = await run([
     {
-      async testSuccess() {},
-      async testFailure() { throw new AssertionError(); },
-      async testError() { throw new Error(); }
+      async setUp() { log.push('setup'); },
+      async tearDown() { log.push('teardown'); },
+      async testSuccess() { log.push('success'); },
+      async testFailure() { log.push('failure'); throw new AssertionError(); },
+      async testError() { log.push('error'); throw new Error(); }
     }
   ], { reporter });
+  is(['setup', 'success', 'teardown',
+      'setup', 'failure', 'teardown',
+      'setup', 'error', 'teardown'],
+     log);
   is({ success: 1, failure: 1, error: 1 },
      result);
 }
