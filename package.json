@@ -19,7 +19,7 @@
     "type": "git",
     "url": "git+https://github.com/piroor/tiny-esm-test-runner.git"
   },
-  "dependencies": {
+  "devDependencies": {
     "babel-core": "^6.0.0",
     "babel-eslint": "^10.1.0",
     "babel-plugin-module-resolver": "^3.0.0",
