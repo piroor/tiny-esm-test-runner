@@ -96,3 +96,44 @@ This assertion accepts one or two arguments:
 * `message` (optional, `string`): An extra message printed when the assertion failed.
 
 This is opposite of `ok()`, succeeds when the actual value is detected as `false` on JavaScript.
+
+## Data driven tests
+
+If you set a `parameters` property to a test function, it will become a data-driven test. For example:
+
+```javascript
+testSuccess.parameters = [
+  ['AAA', 'aaa'],
+  ['BBB', 'bbb']
+];
+export function testUpperCase([expected, data]) {
+  is(expected, data.toUppwerCase());
+}
+```
+
+or
+
+```javascript
+testSuccess.parameters = {
+  a: ['AAA', 'aaa'],
+  b: ['BBB', 'bbb']
+};
+export function testUpperCase([expected, data]) {
+  is(expected, data.toUppwerCase());
+}
+```
+
+The `parameters` property must be an `Array` or an `Object`.
+If you specify an `Array`, the test function will be called multiple times for each element.
+If you specify an `Object`, the test function will be called multiple times with values for each key.
+
+# Example usecases
+
+* [self test](./tests/)
+* https://github.com/piroor/webextensions-lib-dom-updater/tree/master/test
+* https://github.com/piroor/copy-selected-tabs-to-clipboard/tree/master/test
+* https://github.com/piroor/xulmigemo/tree/master/webextensions/test
+
+# License
+
+MIT
