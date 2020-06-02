@@ -20,8 +20,29 @@ First, please create test files as module files. For example:
 import { assert } from 'tiny-esm-test-runner';
 const { is, isNot, ok, ng } = assert;
 
-// Exported functions (both sync and async) starting with the term "test" are
-// automatically detected as tests.
+// Function (both sync and async) exported with the name "setUp" is
+// automatically detected as the common setup for each test.
+// This is optional.
+export function setUp() {
+  // common setup process
+}
+
+// Function (both sync and async) exported with the name "tearDown" is
+// automatically detected as the common teardown for each test.
+// This is optional.
+export function tearDown() {
+  // common teardown process
+}
+
+// Function (both sync and async) exported with the name "shutDown" is
+// automatically detected as the finalization process for all tests.
+// This is optional.
+export function shutDown() {
+  // the finalization process
+}
+
+// All functions (both sync and async) exported with a name starting
+// with the prefix "test" are automatically detected as tests.
 export function testSuccess() {
   const expected = 'AAA';
   const actual = 'aaa'.toUpperCase();
@@ -134,6 +155,8 @@ export function testUpperCase([expected, data]) {
 The `parameters` property must be an `Array` or an `Object`.
 If you specify an `Array`, the test function will be called multiple times for each element.
 If you specify an `Object`, the test function will be called multiple times with values for each key.
+
+Given parameters are available on `setUp()` and `tearDown()` also.
 
 # Example usecases
 
