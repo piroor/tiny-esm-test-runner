@@ -47,3 +47,22 @@ export async function testRunAsynchronousTests() {
   is({ success: 1, failure: 1, error: 1 },
      result);
 }
+
+export async function testRunOnlyRunnable() {
+  const log = [];
+  const testcase = {
+    setUp() { log.push('setup'); },
+    tearDown() { log.push('teardown'); },
+    testRunnable() { log.push('runnable'); },
+    testUnrunnable1() { log.push('unrunnable1'); },
+    testUnrunnable2() { log.push('unrunnable2'); }
+  };
+  testcase.testRunnable.runnable = true;
+  const result = await run([
+    testcase
+  ], { reporter });
+  is(['setup', 'runnable', 'teardown'],
+     log);
+  is({ success: 1, failure: 0, error: 0 },
+     result);
+}
