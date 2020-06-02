@@ -8,4 +8,4 @@ import { run } from '../index.js';
 
 Promise.all(process.argv.slice(2).map(path => import(resolve(path))))
   .then(testCaseModules => run(testCaseModules))
-  .then(result => process.exit(result.failureCount + result.errorCount > 0 ? 1 : 0));
+  .then(result => process.exit(result.failure + result.error > 0 ? 1 : 0));
