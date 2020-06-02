@@ -16,6 +16,7 @@ export async function testRunTests() {
     {
       setUp() { log.push('sync setup'); },
       tearDown() { log.push('sync teardown'); },
+      shutDown() { log.push('sync shutdown'); },
       testSuccess() { log.push('sync success'); },
       testFailure() { log.push('sync failure'); throw new AssertionError(); },
       testError() { log.push('sync error'); throw new Error(); }
@@ -23,6 +24,7 @@ export async function testRunTests() {
     {
       async setUp() { log.push('async setup'); },
       async tearDown() { log.push('async teardown'); },
+      async shutDown() { log.push('async shutdown'); },
       async testSuccess() { log.push('async success'); },
       async testFailure() { log.push('async failure'); throw new AssertionError(); },
       async testError() { log.push('async error'); throw new Error(); }
@@ -32,9 +34,11 @@ export async function testRunTests() {
     'sync setup', 'sync success', 'sync teardown',
     'sync setup', 'sync failure', 'sync teardown',
     'sync setup', 'sync error', 'sync teardown',
+    'sync shutdown',
     'async setup', 'async success', 'async teardown',
     'async setup', 'async failure', 'async teardown',
-    'async setup', 'async error', 'async teardown'
+    'async setup', 'async error', 'async teardown',
+    'async shutdown'
   ], log);
   is({ success: 2, failure: 2, error: 2 },
      result);
@@ -46,6 +50,7 @@ export async function testRunOnlyRunnable() {
     {
       setUp() { log.push('setup1'); },
       tearDown() { log.push('teardown1'); },
+      shutDown() { log.push('shutdown1'); },
       testRunnable() { log.push('runnable1'); },
       testUnrunnable1() { log.push('unrunnable1-1'); },
       testUnrunnable2() { log.push('unrunnable1-2'); }
@@ -53,6 +58,7 @@ export async function testRunOnlyRunnable() {
     {
       setUp() { log.push('setup2'); },
       tearDown() { log.push('teardown2'); },
+      shutDown() { log.push('shutdown2'); },
       testUnrunnable1() { log.push('unrunnable2-1'); },
       testUnrunnable2() { log.push('unrunnable2-2'); }
     }
@@ -60,7 +66,8 @@ export async function testRunOnlyRunnable() {
   testcases[0].testRunnable.runnable = true;
   const result = await run(testcases, { reporter });
   is([
-    'setup1', 'runnable1', 'teardown1'
+    'setup1', 'runnable1', 'teardown1',
+    'shutdown1'
   ], log);
   is({ success: 1, failure: 0, error: 0 },
      result);
