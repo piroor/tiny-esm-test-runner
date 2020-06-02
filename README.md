@@ -53,3 +53,46 @@ If you develop a npm module, you'll put the test script like:
 ```
 
 After that, you just run `npm install && npm test` to do tests.
+
+## Available assertions
+
+### `is(expected, actual, message)`
+
+This assertion accepts two or three arguments:
+
+* `expected` (required, any type): The expected value.
+* `actual` (required, any type): The actual value.
+* `message` (optional, `string`): An extra message printed when the assertion failed.
+
+This succeeds when the actual value equals to the given expected value, based on the `===` operator.
+Even if they are not exact same, they are re-compared again as JSON strings if they are JSON-stringifiable objects (`Object`, `Array`, and so on).
+
+
+### `isNot()`
+
+This assertion accepts two or three arguments:
+
+* `expected` (required, any type): The expected value.
+* `actual` (required, any type): The actual value.
+* `message` (optional, `string`): An extra message printed when the assertion failed.
+
+This is opposite of `is()`, succeeds when the actual value does not equal to the given expected value, based on the `!==` operator.
+They are also re-compared again as JSON strings if they are JSON-stringifiable objects (`Object`, `Array`, and so on).
+
+### `ok()`
+
+This assertion accepts one or two arguments:
+
+* `actual` (required, any type): The actual value.
+* `message` (optional, `string`): An extra message printed when the assertion failed.
+
+This succeeds when the actual value is detected as `true` on JavaScript.
+
+### `ng()`
+
+This assertion accepts one or two arguments:
+
+* `actual` (required, any type): The actual value.
+* `message` (optional, `string`): An extra message printed when the assertion failed.
+
+This is opposite of `ok()`, succeeds when the actual value is detected as `false` on JavaScript.
