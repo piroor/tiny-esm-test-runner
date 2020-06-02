@@ -70,8 +70,8 @@ export async function testDataDrivenTests() {
   const log = [];
   const testcases = [
     {
-      setUp() { log.push('setup'); },
-      tearDown() { log.push('teardown'); },
+      setUp(data) { log.push(`setup ${JSON.stringify(data)}`); },
+      tearDown(data) { log.push(`teardown ${JSON.stringify(data)}`); },
       testWithArrayData(data) { log.push(`test array ${JSON.stringify(data)}`); },
       testWithObjectData(data) { log.push(`test object ${JSON.stringify(data)}`); }
     }
@@ -88,12 +88,12 @@ export async function testDataDrivenTests() {
   };
   const result = await run(testcases, { reporter });
   is([
-    'setup', 'test array 0', 'teardown',
-    'setup', 'test array ["string"]', 'teardown',
-    'setup', 'test array {"foo":true}', 'teardown',
-    'setup', 'test object 0', 'teardown',
-    'setup', 'test object ["string"]', 'teardown',
-    'setup', 'test object {"foo":true}', 'teardown'
+    'setup 0', 'test array 0', 'teardown 0',
+    'setup ["string"]', 'test array ["string"]', 'teardown ["string"]',
+    'setup {"foo":true}', 'test array {"foo":true}', 'teardown {"foo":true}',
+    'setup 0', 'test object 0', 'teardown 0',
+    'setup ["string"]', 'test object ["string"]', 'teardown ["string"]',
+    'setup {"foo":true}', 'test object {"foo":true}', 'teardown {"foo":true}'
   ], log);
   is({ success: 6, failure: 0, error: 0 },
      result);
