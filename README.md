@@ -2,12 +2,12 @@
 
 [![Build Status](https://travis-ci.org/piroor/tiny-esm-test-runner.svg?branch=master)](https://travis-ci.org/piroor/tiny-esm-test-runner)
 
-Small test runner for ESModules style modules on Node.js.
-**This is for you ESModules addict, if you hope to write tests for ESModules as ESModules strictly.**
+Small test runner for ES modules style modules on Node.js.
+**This is for you ES modules addict, if you hope to write tests for ES modules as ES modules strictly.**
 
 ## Benefits
 
-A testcase written for this testing framework are completely valid ESModule.
+A testcase written for this testing framework are completely valid ES module.
 Thus you don't need to put any ugly exceptions for `eslint` about your testcases, and it will allow you to keep testcases more strict easily.
 
 ## How to create test cases
