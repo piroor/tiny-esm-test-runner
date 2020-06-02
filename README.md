@@ -12,6 +12,8 @@ First, please create test files as ESModules. For example:
 import { assert } from 'tiny-esm-test-runner';
 const { is, isNot, ok, ng } = assert;
 
+// Exported functions (both sync and async) starting with the term "test" are
+// automatically detected as tests.
 export function testSuccess() {
   const expected = 'AAA';
   const actual = 'aaa'.toUpperCase();
