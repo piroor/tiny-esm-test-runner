@@ -7,7 +7,7 @@ Small test runner for ESModules style modules on Node.js.
 
 ## Benefits
 
-A testcase written for this testing framework are copletely valid ESModule.
+A testcase written for this testing framework are completely valid ESModule.
 Thus you don't need to put any ugly exceptions for `eslint` about your testcases, and it will allow you to keep testcases more strict easily.
 
 ## How to create test cases
