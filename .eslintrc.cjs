@@ -5,7 +5,8 @@ module.exports = {
   'root': true,
 
   // https://qiita.com/kurkuru/items/d4eebd34f0898c6a2d5a
-  // this is required to accept `import.meta.url`
+  // this is required to accept `import.meta.url`,
+  // dynamic import via `import()`, and so on.
   'parser': 'babel-eslint',
 
   'parserOptions': {

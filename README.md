@@ -5,6 +5,11 @@
 Small test runner for ESModules style modules on Node.js.
 **This is for you ESModules addict, if you hope to write tests for ESModules as ESModules strictly.**
 
+## Benefits
+
+A testcase written for this testing framework are copletely valid ESModule.
+Thus you don't need to put any ugly exceptions for `eslint` about your testcases, and it will allow you to keep testcases more strict easily.
+
 ## How to create test cases
 
 First, please create test files as module files. For example:
