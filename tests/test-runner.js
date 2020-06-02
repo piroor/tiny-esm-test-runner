@@ -5,6 +5,11 @@
 import { run, assert } from '../index.js';
 const { is, isNot, ok, ng } = assert;
 
+const reporter = {
+  log() {},
+  error() {}
+};
+
 export async function testRunSynchronousTests() {
   const result = await run([
     {
@@ -12,7 +17,7 @@ export async function testRunSynchronousTests() {
       test2() {},
       test3() {}
     }
-  ]);
+  ], { reporter });
   is({ success: 3, failure: 0, error: 0 },
      result);
 }
