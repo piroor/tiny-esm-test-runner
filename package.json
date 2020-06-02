@@ -10,7 +10,7 @@
   "scripts": {
     "lint": "eslint . --ext=.js --report-unused-disable-directives",
     "format": "eslint . --ext=.js --report-unused-disable-directives --fix",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "bin/run-tiny-esm-test-runner.js tests/test-*.js"
   },
   "bin": {
     "run-tiny-esm-test-runner": "bin/run-tiny-esm-test-runner.js"
