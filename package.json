@@ -10,7 +10,8 @@
   "scripts": {
     "lint": "eslint . --ext=.js --report-unused-disable-directives",
     "format": "eslint . --ext=.js --report-unused-disable-directives --fix",
-    "test": "bin/run-tiny-esm-test-runner.js tests/test-*.js"
+    "test": "bin/run-tiny-esm-test-runner.js tests/test-*.js",
+    "install-hook": "echo '#!/bin/sh\nnpm run lint' > .git/hooks/pre-commit && chmod +x .git/hooks/pre-commit"
   },
   "bin": {
     "run-tiny-esm-test-runner": "bin/run-tiny-esm-test-runner.js"
