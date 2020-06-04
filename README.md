@@ -62,7 +62,11 @@ After that run the `run-tiny-esm-test-runner` command with created testcase file
 $ run-tiny-esm-test-runner test-*.js
 ```
 
-If you use [Deno](https://deno.land/) you just need to run `bin/tiny-esm-test-runner.deno`, like:
+The command returns `0` if all tests succeeded. Otherwise `1` will be returned and details are printed.
+
+## [Deno](https://deno.land/) support
+
+You can run the test runner on [Deno](https://deno.land/), like:
 
 ```bash
 $ git clone https://github.com/piroor/tiny-esm-test-runner.git
@@ -70,7 +74,11 @@ $ deno install --allow-read --allow-write --allow-net tiny-esm-test-runner/bin/r
 $ tiny-esm-test-runner test-*.js
 ```
 
-The command returns `0` if all tests succeeded. Otherwise `1` will be returned and details are printed.
+Please note that you need to import assertions from the online resource:
+
+```
+import { is, ok, ng } from 'https://github.com/piroor/tiny-esm-test-runner/raw/master/lib/assert.js';
+```
 
 ## For your modules
 
