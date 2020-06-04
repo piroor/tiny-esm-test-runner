@@ -66,7 +66,8 @@ If you use [Deno](https://deno.land/) you just need to run `bin/tiny-esm-test-ru
 
 ```bash
 $ git clone https://github.com/piroor/tiny-esm-test-runner.git
-$ tiny-esm-test-runner/bin/run-tiny-esm-test-runner.deno test-*.js
+$ deno install --allow-read --allow-write --allow-net tiny-esm-test-runner/bin/run-tiny-esm-test-runner.deno
+$ tiny-esm-test-runner test-*.js
 ```
 
 The command returns `0` if all tests succeeded. Otherwise `1` will be returned and details are printed.
