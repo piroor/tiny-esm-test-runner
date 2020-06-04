@@ -5,7 +5,7 @@
 
 import { run } from '../index.js';
 
-Promise.all(Deno.args.map(path => import(Deno.realPathSync(path))))
+Promise.all(Deno.args.map(async path => import(await Deno.realPath(path))))
   .then(testCaseModules => run(testCaseModules, {
     stdout: message => Deno.stdout.writeSync(((new TextEncoder).encode(message)))
   }))
