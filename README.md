@@ -62,6 +62,13 @@ After that run the `run-tiny-esm-test-runner` command with created testcase file
 $ run-tiny-esm-test-runner test-*.js
 ```
 
+If you use [Deno](https://deno.land/) you just need to run `bin/tiny-esm-test-runner.deno`, like:
+
+```bash
+$ git clone https://github.com/piroor/tiny-esm-test-runner.git
+$ tiny-esm-test-runner/bin/run-tiny-esm-test-runner.deno test-*.js
+```
+
 The command returns `0` if all tests succeeded. Otherwise `1` will be returned and details are printed.
 
 ## For your modules
