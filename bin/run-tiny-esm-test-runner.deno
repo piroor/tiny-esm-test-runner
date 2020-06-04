@@ -1,0 +1,12 @@
+#!/usr/bin/env deno
+/*
+ license: The MIT License, Copyright (c) 2020 YUKI "Piro" Hiroshi
+*/
+
+import { run } from '../index.js';
+
+Promise.all(Deno.args.map(path => import(Deno.realPathSync(path))))
+  .then(testCaseModules => run(testCaseModules, {
+    stdout: message => Deno.stdout.writeSync(((new TextEncoder).encode(message)))
+  }))
+  .then(result => Deno.exit(result.failure + result.error > 0 ? 1 : 0));
