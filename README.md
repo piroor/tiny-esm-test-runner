@@ -1,6 +1,6 @@
 # tiny-esm-test-runner
 
-[![Build Status](https://travis-ci.org/piroor/tiny-esm-test-runner.svg?branch=master)](https://travis-ci.org/piroor/tiny-esm-test-runner)
+[![Build Status](https://travis-ci.org/piroor/tiny-esm-test-runner.svg?branch=trunk)](https://travis-ci.org/piroor/tiny-esm-test-runner)
 
 Small test runner for ES modules style modules on Node.js.
 **This is for you ES modules addict, if you hope to write tests for ES modules as ES modules strictly.**
