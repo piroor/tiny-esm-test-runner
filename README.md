@@ -131,24 +131,24 @@ This is opposite of `ok()`, succeeds when the actual value is detected as `false
 If you set a `parameters` property to a test function, it will become a data-driven test. For example:
 
 ```javascript
-testSuccess.parameters = [
+testUpperCase.parameters = [
   ['AAA', 'aaa'],
   ['BBB', 'bbb']
 ];
 export function testUpperCase([expected, data]) {
-  is(expected, data.toUppwerCase());
+  is(expected, data.toUpperCase());
 }
 ```
 
 or
 
 ```javascript
-testSuccess.parameters = {
+testUpperCase.parameters = {
   a: ['AAA', 'aaa'],
   b: ['BBB', 'bbb']
 };
 export function testUpperCase([expected, data]) {
-  is(expected, data.toUppwerCase());
+  is(expected, data.toUpperCase());
 }
 ```
 
