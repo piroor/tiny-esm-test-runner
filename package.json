@@ -1,6 +1,6 @@
 {
   "name": "tiny-esm-test-runner",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "engines": {
     "node": ">=13.2"
   },
