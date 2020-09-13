@@ -7,6 +7,7 @@
   "description": "Small test runner for ESModules style modules on Node.js",
   "main": "index.js",
   "type": "module",
+  "types": "index.d.ts",
   "scripts": {
     "lint": "eslint . --ext=.js --report-unused-disable-directives",
     "format": "eslint . --ext=.js --report-unused-disable-directives --fix",
