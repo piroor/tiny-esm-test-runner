@@ -1,12 +1,13 @@
 {
   "name": "tiny-esm-test-runner",
-  "version": "1.1.1",
+  "version": "1.2.2",
   "engines": {
     "node": ">=13.2"
   },
   "description": "Small test runner for ESModules style modules on Node.js",
   "main": "index.js",
   "type": "module",
+  "types": "index.d.ts",
   "scripts": {
     "lint": "eslint . --ext=.js --report-unused-disable-directives",
     "format": "eslint . --ext=.js --report-unused-disable-directives --fix",
@@ -19,6 +20,10 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/piroor/tiny-esm-test-runner.git"
+  },
+  "dependencies": {
+    "file-url": "*",
+    "glob": "*"
   },
   "devDependencies": {
     "babel-core": "^6.0.0",

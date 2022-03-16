@@ -1,6 +1,6 @@
 # tiny-esm-test-runner
 
-[![Build Status](https://travis-ci.org/piroor/tiny-esm-test-runner.svg?branch=master)](https://travis-ci.org/piroor/tiny-esm-test-runner)
+![Build Status](https://github.com/piroor/tiny-esm-test-runner/actions/workflows/main.yml/badge.svg?branch=trunk)
 
 Small test runner for ES modules style modules on Node.js.
 **This is for you ES modules addict, if you hope to write tests for ES modules as ES modules strictly.**
@@ -147,24 +147,24 @@ This is opposite of `ok()`, succeeds when the actual value is detected as `false
 If you set a `parameters` property to a test function, it will become a data-driven test. For example:
 
 ```javascript
-testSuccess.parameters = [
+testUpperCase.parameters = [
   ['AAA', 'aaa'],
   ['BBB', 'bbb']
 ];
 export function testUpperCase([expected, data]) {
-  is(expected, data.toUppwerCase());
+  is(expected, data.toUpperCase());
 }
 ```
 
 or
 
 ```javascript
-testSuccess.parameters = {
+testUpperCase.parameters = {
   a: ['AAA', 'aaa'],
   b: ['BBB', 'bbb']
 };
 export function testUpperCase([expected, data]) {
-  is(expected, data.toUppwerCase());
+  is(expected, data.toUpperCase());
 }
 ```
 
