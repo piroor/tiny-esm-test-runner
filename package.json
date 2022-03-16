@@ -26,7 +26,7 @@
     "glob": "*"
   },
   "devDependencies": {
-    "babel-core": "^6.0.0",
+    "@babel/core": "^7.16.3",
     "@babel/eslint-parser": "^7.16.3",
     "babel-plugin-module-resolver": "^3.0.0",
     "eslint": "^8.11.0",
