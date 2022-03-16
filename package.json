@@ -2,7 +2,7 @@
   "name": "tiny-esm-test-runner",
   "version": "1.2.3",
   "engines": {
-    "node": ">=13.2"
+    "node": ">=16.14"
   },
   "description": "Small test runner for ESModules style modules on Node.js",
   "main": "index.js",
@@ -26,8 +26,9 @@
     "glob": "*"
   },
   "devDependencies": {
-    "@babel/core": "^7.16.3",
+    "@babel/core": "^7.17.7",
     "@babel/eslint-parser": "^7.16.3",
+    "@babel/preset-env": "^7.16.11",
     "babel-loader": "^8.2.3",
     "babel-plugin-module-resolver": "^3.0.0",
     "eslint": "^8.11.0",
